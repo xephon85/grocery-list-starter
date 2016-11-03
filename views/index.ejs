@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Grocery List</title>
+</head>
+<body>
+  <form action="/items" method="post">
+    <input type="text" />
+    <input type="number" />
+    <input type="submit" value="+ Add Item" />
+  </form>
+
+  <ul>
+    <% items.forEach(function(item) { %>
+        <li><% item.text %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>
