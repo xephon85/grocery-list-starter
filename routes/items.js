@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const ItemModel = require('../models/ItemModel.js');
 const items = {};
 
 
@@ -17,10 +18,11 @@ router.get('/', (req, res, next) => {
   });
 });
 
-//Post-Create a tasks
-router.post('/items', (req, res, next) => {
+//Post-Create an item
+router.post('/', (req, res, next) => {
   var item = new ItemModel({
-    text : req.body.text
+    item : req.body.item,
+    qty : req.body.qty
   });
 
   item.save((err, item) => {
@@ -30,3 +32,5 @@ router.post('/items', (req, res, next) => {
   });
   console.log(req.body)
 });
+
+module.exports = router;
